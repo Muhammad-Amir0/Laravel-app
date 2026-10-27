@@ -22,8 +22,10 @@ jobs:
             set -e
             cd ${{ secrets.APP_PATH }}
 
-            git fetch origin main
-            git reset --hard origin/main
+            cd /var/www/sabzicart
+            git pull --ff-only origin main
+            php artisan optimize:clear
+            php artisan optimize
 
             composer install --no-dev --optimize-autoloader --no-interaction
 
