@@ -22,7 +22,7 @@ jobs:
             set -e
             cd ${{ secrets.APP_PATH }}
 
-            cd /var/www/sabzicart
+            cd /var/www/laravel-app
             git pull --ff-only origin main
             php artisan optimize:clear
             php artisan optimize
